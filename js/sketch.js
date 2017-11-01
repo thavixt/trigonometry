@@ -22,8 +22,6 @@
 		//let paras = {}
 		let trig = { sin: 0, cos: 0, tan: 0, ctg: 0 }
 
-		sketch.preload = function () { }
-
 		sketch.setup = function () {
 			// Basic setup
 			sketch.frameRate(FRAMERATE)
@@ -57,13 +55,10 @@
 				let y = window.scrollY
 				console.log(x, y)
 				window.scrollTo(x, y) */
-				// Get angle
-				degree = degreeSlider.value()
 				// Get scroll delta
-				let delta = event.deltaY / 100
-				sketch.angleChanged(degree + delta)
-				// Update with new angle
-				degreeSlider.value(degree + delta)
+				degree += event.deltaY / 100
+				// Set new angle
+				sketch.angleChanged(degree)
 				// Update slider value
 				degree = degreeSlider.value()
 			})
@@ -221,8 +216,6 @@
 				trig.cos.pop()
 			}
 		}
-
-		sketch.preload = function () { }
 
 		sketch.setup = function () {
 			// Basic setup
